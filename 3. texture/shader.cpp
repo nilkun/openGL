@@ -14,7 +14,8 @@ bool Shader::init()
 {    
     Datafile files[2] = {
         { "vert.glsl", GL_VERTEX_SHADER },
-        { "frag.glsl", GL_FRAGMENT_SHADER }
+        { "texture.glsl", GL_FRAGMENT_SHADER },
+        // { "frag.glsl", GL_FRAGMENT_SHADER }
     };
     m_program = glCreateProgram();
     for(auto file : files) if(!load(file.name, file.type)) return false;
@@ -37,6 +38,8 @@ void Shader::useProgram()
 {
     glUseProgram(m_program);
 }
+
+// GetPRogram Gluint
 
 Shader::~Shader() {
     close();
@@ -84,6 +87,10 @@ std::string Shader::readFile(const char* fileName)
     buffer << t.rdbuf();
     std::string fileContent = buffer.str();
     return fileContent;
+}
+GLuint Shader::getID()
+{
+    return shaderIDs[0];
 }
 
 void Shader::error(int32_t shaderID) 

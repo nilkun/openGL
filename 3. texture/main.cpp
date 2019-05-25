@@ -3,39 +3,30 @@
 #include "renderer.h"
 #include "shader.h"
 #include "buffer.h"
-
-// DEBUGGING
-void GLAPIENTRY
-MessageCallback( GLenum source,
-                 GLenum type,
-                 GLuint id,
-                 GLenum severity,
-                 GLsizei length,
-                 const GLchar* message,
-                 const void* userParam )
-{
-  fprintf( stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n",
-           ( type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : "" ),
-            type, severity, message );
-}
-// END OF DEBUGGING CODE
+#include "debug.h"
 
 Renderer renderer;
 Shader shader;
 Buffer buffer;
+Debug debug;
+
+GLfloat vertexData[] = {
+    //  X     Y     Z       U     V
+     0.0f, 0.8f, 0.0f,   0.5f, 1.0f,
+    -0.8f,-0.8f, 0.0f,   0.0f, 0.0f,
+     0.8f,-0.8f, 0.0f,   1.0f, 0.0f,
+};
 
 // DECLARATIONS
 void start();
 
 int main() 
 { 
-	
     if(!renderer.init()) return -1;
 
-	// DEBUGGING
-	glEnable              ( GL_DEBUG_OUTPUT );
-	glDebugMessageCallback( MessageCallback, 0 );
-	// END OF DEBUGGING
+	debug.enable();
+	if (!shader.init()) return false;
+	shader.useProgram();
 
     if(!buffer.init(shader)) return -1;
 
@@ -46,6 +37,13 @@ int main()
 
 	std::cin.ignore();
 	renderer.clear(1.0, 0.0, 0.0, 1.0);
+
+	int location = glGetUniformLocation(shader.getProgram(), "tex");
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, buffer.textureIDs[0]);
+	glUniform1i(location, 0);
+	glBindVertexArray(buffer.vao[0]);
+
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 	renderer.swapBuffers();
     start();
