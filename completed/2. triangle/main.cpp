@@ -70,7 +70,7 @@ int main() {
     if(!setupBuffers()) return -1;
 
     renderer.clearScreen();
-	glDrawArrays(GL_LINE_LOOP, 0, 4);
+	glDrawArrays(GL_LINE_LOOP, 0, 3);
 	renderer.swapBuffers();
 	std::cout << "Press ENTER to render next frame\n";
 	std::cin.ignore();

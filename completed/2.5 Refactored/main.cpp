@@ -1,51 +1,39 @@
 #include <SDL2/SDL.h>
-#include <iostream>
 #include "renderer.h"
 #include "shader.h"
-#include "buffer.h"
 #include "debug.h"
+#include "buffer.h"
+#include <iostream>
 
 Renderer renderer;
 Shader shader;
 Buffer buffer;
-Debug debug;
 
-GLfloat vertexData[] = {
-    //  X     Y     Z       U     V
-     0.0f, 0.8f, 0.0f,   0.5f, 1.0f,
-    -0.8f,-0.8f, 0.0f,   0.0f, 0.0f,
-     0.8f,-0.8f, 0.0f,   1.0f, 0.0f,
-};
-
-// DECLARATIONS
 void start();
 
-int main() 
-{ 
+
+int main() { 
+    Debug debug;
+
     if(!renderer.init()) return -1;
 
-	debug.enable();
-	if (!shader.init()) return false;
+    debug.enable();
+    buffer.init();
+    if (!shader.init()) return false;
 	shader.useProgram();
-
-    if(!buffer.init(shader)) return -1;
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     renderer.clearScreen();
-	glDrawArrays(GL_LINE_LOOP, 0, 4);
+	glDrawArrays(GL_LINE_LOOP, 0, 3);
 	renderer.swapBuffers();
-	std::cout << "Press ENTER to render next frame" << std::endl;
 
+	std::cout << "Press ENTER to render next frame\n";
 	std::cin.ignore();
+    
 	renderer.clear(1.0, 0.0, 0.0, 1.0);
-
-	int location = glGetUniformLocation(shader.getProgram(), "tex");
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, buffer.textureIDs[0]);
-	glUniform1i(location, 0);
-	glBindVertexArray(buffer.vao[0]);
-
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 	renderer.swapBuffers();
+    
     start();
     renderer.close();
 	shader.close();

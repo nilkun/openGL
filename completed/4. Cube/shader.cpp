@@ -1,5 +1,4 @@
 #include "shader.h"
-#include <SDL2/SDL.h>
 
 #include <sstream>
 #include <fstream>
@@ -14,8 +13,7 @@ bool Shader::init()
 {    
     Datafile files[2] = {
         { "vert.glsl", GL_VERTEX_SHADER },
-        { "texture.glsl", GL_FRAGMENT_SHADER },
-        // { "frag.glsl", GL_FRAGMENT_SHADER }
+        { "texture.glsl", GL_FRAGMENT_SHADER }
     };
     m_program = glCreateProgram();
     for(auto file : files) if(!load(file.name, file.type)) return false;
@@ -29,6 +27,7 @@ bool Shader::load(const std::string &fileName, GLenum shaderType)
     {
         glAttachShader(m_program, shaderID);
         shaderIDs.push_back(shaderID);
+        std::cout << "Successfully loaded " << fileName << std::endl;
         return true;
     }
     return false;
@@ -38,8 +37,6 @@ void Shader::useProgram()
 {
     glUseProgram(m_program);
 }
-
-// GetPRogram Gluint
 
 Shader::~Shader() {
     close();

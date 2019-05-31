@@ -73,7 +73,7 @@ void Renderer::close()
 bool Renderer::setAttributes()
 {
     int major = 3;
-    int minor = 2;
+    int minor = 3;
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, major);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, minor);

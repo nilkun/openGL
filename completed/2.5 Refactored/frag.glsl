@@ -8,16 +8,16 @@ out vec4 fragColor;
  
 float rand(vec2 co);
 
-bool randomColor = false;
+bool randomColor = true;
 
 void main(void)
 {
     if (randomColor)
     {
-        fragColor.r  = (ex_Color.r * 0.5) + ( rand(ex_Color.ra) * 0.5);
-        fragColor.g  = (ex_Color.g * 0.5) + ( rand(ex_Color.bg) * 0.5);
-        fragColor.b  = (ex_Color.b * 0.5) + ( rand(ex_Color.gb) * 0.5);
-        fragColor.a  = ex_Color.a;// + ( rand(ex_Color.ba) * 0.8);
+        fragColor.r  = ex_Color.r; //(ex_Color.r * 0.5) + ( rand(ex_Color.ra) * 0.5);
+        fragColor.g  = ex_Color.g; //(ex_Color.g * 0.5) + ( rand(ex_Color.bg) * 0.5);
+        fragColor.b  = ex_Color.b; //(ex_Color.b * 0.5) + ( rand(ex_Color.gb) * 0.5);
+        fragColor.a  = 1; //ex_Color.a;// + ( rand(ex_Color.ba) * 0.8);
     }
     else
         fragColor = ex_Color;
