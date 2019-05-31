@@ -1,12 +1,11 @@
-#include <SDL2/SDL.h>
-#include "renderer.h"
-#include "shader.h"
-#include "debug.h"
-#include "buffer.h"
 #include <iostream>
-#include "matrices.h"
+#include <SDL2/SDL.h>
 
-
+#include "./sdl/renderer.h"
+#include "./openGL/shader.h"
+#include "./debug/debug.h"
+#include "./openGL/buffer.h"
+#include "./openGL/matrices.h"
 
 Renderer renderer;
 Shader shader;
@@ -16,11 +15,18 @@ Matrix matrix;
 void start();
 
 int main() { 
+/** 
+	Playing around with OpenGL 
+	This is a neverending project, where new functionality will be constantly added.	
+*/
     Debug debug;
 
     if(!renderer.init()) return -1;
 
 	glEnable(GL_NORMALIZE);
+    // renderer.clearScreen();
+	// glDrawArrays(GL_LINE_LOOP, 0, 3);
+	// renderer.swapBuffers();
     debug.enable();
     buffer.init();
     if (!shader.init()) return false;
@@ -29,14 +35,12 @@ int main() {
 	GLuint matrixID = glGetUniformLocation(shader.getProgram(), "MVP");
 
 	buffer.loadUniform(glGetUniformLocation(shader.getProgram(), "tex"));
-    renderer.clearScreen();
-	glDrawArrays(GL_LINE_LOOP, 0, 3);
-	renderer.swapBuffers();
+
 
 	std::cout << "Press ENTER to render next frame\n";
 	std::cin.ignore();
 
-	renderer.clear(1.0, 0.0, 0.0, 1.0);
+	renderer.clear(0.0, 0.0, 0.0, 1.0);
 	glUniformMatrix4fv(matrixID, 1, GL_FALSE, &matrix.mvp[0][0]);
 
 	buffer.bindAll();

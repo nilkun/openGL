@@ -1,10 +1,11 @@
-#include "shader.h"
 #include <SDL2/SDL.h>
+
+#include "shader.h"
 
 class Buffer
 {
-public:
 
+public:
     GLuint triangleID;
     GLuint colorbuffer;
     GLuint texBuffer;

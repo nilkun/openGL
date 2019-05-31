@@ -1,0 +1,39 @@
+\hypertarget{classMatrix}{}\section{Matrix Class Reference}
+\label{classMatrix}\index{Matrix@{Matrix}}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMatrix_a6ab938ab4d1e3dd2a825ef4f4180115c}\label{classMatrix_a6ab938ab4d1e3dd2a825ef4f4180115c}} 
+glm\+::mat4 {\bfseries projection} = glm\+::perspective(glm\+::radians(45.\+0f), 1.\+0f, .\+1f, 100.\+0f)
+\item 
+glm\+::mat4 {\bfseries view}
+\item 
+\mbox{\Hypertarget{classMatrix_a331798e1e45c9fc7476664b949dfbd3b}\label{classMatrix_a331798e1e45c9fc7476664b949dfbd3b}} 
+glm\+::mat4 {\bfseries model} = glm\+::mat4(1.\+0f)
+\item 
+\mbox{\Hypertarget{classMatrix_af82b6f9a0690fba436a830e9a91b0841}\label{classMatrix_af82b6f9a0690fba436a830e9a91b0841}} 
+glm\+::mat4 {\bfseries mvp} = projection $\ast$ view $\ast$ model
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classMatrix_a72608a4407a76c0e564fc70b3d7a66d3}\label{classMatrix_a72608a4407a76c0e564fc70b3d7a66d3}} 
+\index{Matrix@{Matrix}!view@{view}}
+\index{view@{view}!Matrix@{Matrix}}
+\subsubsection{\texorpdfstring{view}{view}}
+{\footnotesize\ttfamily glm\+::mat4 Matrix\+::view}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= glm::lookAt(}
+\DoxyCodeLine{        glm::vec3(4,3,3),}
+\DoxyCodeLine{        glm::vec3(0,0,0),}
+\DoxyCodeLine{        glm::vec3(0,1,0)}
+\DoxyCodeLine{    )}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+matrices.\+h\end{DoxyCompactItemize}

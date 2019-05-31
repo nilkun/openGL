@@ -1,10 +1,13 @@
+// OpenGL
 #include "buffer.h"
+
 #include <GL/glew.h>
 #include <iostream>
 #include <SDL2/SDL_image.h>
 
-GLuint Buffer::create(const GLfloat* data, int size, GLuint index, GLboolean normalize)
+GLuint Buffer::create(const GLfloat* data, int size, GLuint index)
 {
+	/** Creates a new VBO */
 	GLuint buffer;
 	glGenBuffers(1, &buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, buffer);
@@ -14,7 +17,10 @@ GLuint Buffer::create(const GLfloat* data, int size, GLuint index, GLboolean nor
 
 bool Buffer::init()
 {
-    // VERTEX ARRAY
+    /**
+	*	Generates a Vertex Array Object and all the Vertex Buffer Objects
+	*/
+
 	glGenVertexArrays(1, vao);
 	glBindVertexArray(vao[0]);
 
@@ -24,6 +30,9 @@ bool Buffer::init()
 }
 
 void Buffer::bindAll() {
+	/** 
+	 * Binds all buffers and textures
+	 */
 
 	glEnableVertexAttribArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, triangleID);
@@ -39,6 +48,9 @@ void Buffer::bindAll() {
 }
 
 void Buffer::setTexture() {
+	/**
+	 * Creates a surface and loads an image onto it.
+	 */
 
     SDL_Surface *surface = getSurface();
     glGenTextures(1, textureIDs);
@@ -58,11 +70,18 @@ void Buffer::setTexture() {
 }
 
 void Buffer::loadUniform(GLuint id) {
+	/**
+	 * binds a texture to a uniform
+	 */
+
     glUniform1i(id, GL_TEXTURE0);
 }
 
 SDL_Surface* Buffer::getSurface() {  
-    std::string filename = "texture.png";
+	/**
+	 * Loads "texture.png" and returns it as a SDL surface.
+	 */
+    std::string filename = "resources/images/texture.png";
 	const char* file = filename.c_str();
 	SDL_Surface* surface = IMG_Load(file);
 

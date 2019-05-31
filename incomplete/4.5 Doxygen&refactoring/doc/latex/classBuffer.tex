@@ -1,0 +1,88 @@
+\hypertarget{classBuffer}{}\section{Buffer Class Reference}
+\label{classBuffer}\index{Buffer@{Buffer}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \mbox{\hyperlink{classBuffer_a6fc374a8a64e465f1d89a0231db21387}{create}} (const G\+Lfloat $\ast$data, int size, G\+Luint index)
+\item 
+\mbox{\Hypertarget{classBuffer_a3b074802b68b04b8ff37a2c4a9c67ca9}\label{classBuffer_a3b074802b68b04b8ff37a2c4a9c67ca9}} 
+void {\bfseries set\+Texture} ()
+\item 
+\mbox{\Hypertarget{classBuffer_aeb7dd5ef127e52c37fe9a648c6940f4f}\label{classBuffer_aeb7dd5ef127e52c37fe9a648c6940f4f}} 
+S\+D\+L\+\_\+\+Surface $\ast$ {\bfseries get\+Surface} ()
+\item 
+\mbox{\Hypertarget{classBuffer_acbc589928fb84ba8c0262e6d7436186f}\label{classBuffer_acbc589928fb84ba8c0262e6d7436186f}} 
+void {\bfseries load\+Uniform} (G\+Luint id)
+\item 
+\mbox{\Hypertarget{classBuffer_ac12acf3f8cc4f59c3d8d6fc32d5cd262}\label{classBuffer_ac12acf3f8cc4f59c3d8d6fc32d5cd262}} 
+void {\bfseries bind\+All} ()
+\item 
+\mbox{\Hypertarget{classBuffer_a53166024aee649e00b0908cc04d2ccaa}\label{classBuffer_a53166024aee649e00b0908cc04d2ccaa}} 
+void {\bfseries bind\+Texture} ()
+\item 
+\mbox{\Hypertarget{classBuffer_a9e8de833e80d867879b0fcb9c6ee9aa6}\label{classBuffer_a9e8de833e80d867879b0fcb9c6ee9aa6}} 
+bool {\bfseries init} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBuffer_aa2d894f7e481dd61a30dacdc24aef7db}\label{classBuffer_aa2d894f7e481dd61a30dacdc24aef7db}} 
+G\+Luint {\bfseries triangle\+ID}
+\item 
+\mbox{\Hypertarget{classBuffer_a3877c8bc8b07fc5e47b7fb177ed53216}\label{classBuffer_a3877c8bc8b07fc5e47b7fb177ed53216}} 
+G\+Luint {\bfseries colorbuffer}
+\item 
+\mbox{\Hypertarget{classBuffer_a2f55237fbb676fb6c5491cd278f13421}\label{classBuffer_a2f55237fbb676fb6c5491cd278f13421}} 
+G\+Luint {\bfseries tex\+Buffer}
+\item 
+\mbox{\Hypertarget{classBuffer_a979553f77dd452ba2efd18e97efaa100}\label{classBuffer_a979553f77dd452ba2efd18e97efaa100}} 
+G\+Luint {\bfseries texture\+I\+Ds} \mbox{[}1\mbox{]}
+\item 
+\mbox{\Hypertarget{classBuffer_a490dfc9a06ef3d106abe5b9c85edc3ab}\label{classBuffer_a490dfc9a06ef3d106abe5b9c85edc3ab}} 
+G\+Luint {\bfseries location}
+\item 
+\mbox{\Hypertarget{classBuffer_afdfff194edb48100d1bdaaef1d673dcd}\label{classBuffer_afdfff194edb48100d1bdaaef1d673dcd}} 
+G\+Luint {\bfseries vbo} \mbox{[}1\mbox{]}
+\item 
+\mbox{\Hypertarget{classBuffer_ac2ee2950d10a377c00e3af70cf313149}\label{classBuffer_ac2ee2950d10a377c00e3af70cf313149}} 
+G\+Luint {\bfseries vao} \mbox{[}1\mbox{]}
+\item 
+\mbox{\Hypertarget{classBuffer_a7d73bcf4f6f6c17f81f39a4876a4e073}\label{classBuffer_a7d73bcf4f6f6c17f81f39a4876a4e073}} 
+const uint32\+\_\+t {\bfseries position\+Attribute\+Index} = 0
+\item 
+\mbox{\Hypertarget{classBuffer_a4b84bdc1abfc918bc8277d4aa01eb7a1}\label{classBuffer_a4b84bdc1abfc918bc8277d4aa01eb7a1}} 
+const uint32\+\_\+t {\bfseries color\+Attribute\+Index} = 1
+\item 
+\mbox{\Hypertarget{classBuffer_aec619cc007cef01d2a784ee9aa5daed0}\label{classBuffer_aec619cc007cef01d2a784ee9aa5daed0}} 
+const G\+Lfloat {\bfseries cube} \mbox{[}36 $\ast$3\mbox{]}
+\item 
+\mbox{\Hypertarget{classBuffer_a87f7fdbab4aa305177ee0030c25eab1d}\label{classBuffer_a87f7fdbab4aa305177ee0030c25eab1d}} 
+const G\+Lfloat {\bfseries texture\+Map} \mbox{[}36 $\ast$2\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBuffer_a6698784d8c411d267b41783b9afb53f8}\label{classBuffer_a6698784d8c411d267b41783b9afb53f8}} 
+static const uint32\+\_\+t {\bfseries points} = 3
+\item 
+\mbox{\Hypertarget{classBuffer_a98e73097c322154a3decd3ffc2b23122}\label{classBuffer_a98e73097c322154a3decd3ffc2b23122}} 
+static const uint32\+\_\+t {\bfseries floats\+Per\+Point} = 3
+\item 
+\mbox{\Hypertarget{classBuffer_a2ee60c81acd03236c4239dd6f1402212}\label{classBuffer_a2ee60c81acd03236c4239dd6f1402212}} 
+static const uint32\+\_\+t {\bfseries floats\+Per\+Color} = 4
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classBuffer_a6fc374a8a64e465f1d89a0231db21387}\label{classBuffer_a6fc374a8a64e465f1d89a0231db21387}} 
+\index{Buffer@{Buffer}!create@{create}}
+\index{create@{create}!Buffer@{Buffer}}
+\subsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily G\+Luint Buffer\+::create (\begin{DoxyParamCaption}\item[{const G\+Lfloat $\ast$}]{data,  }\item[{int}]{size,  }\item[{G\+Luint}]{index }\end{DoxyParamCaption})}
+
+Creates a new V\+BO 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+buffer.\+h\item 
+buffer.\+cpp\end{DoxyCompactItemize}

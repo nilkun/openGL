@@ -1,0 +1,3 @@
+/home/nilkun/git/C++/practice/openGL/incomplete/4.5 Doxygen&refactoring/cmake/CMakeFiles/rebuild_cache.dir
+/home/nilkun/git/C++/practice/openGL/incomplete/4.5 Doxygen&refactoring/cmake/CMakeFiles/play.dir
+/home/nilkun/git/C++/practice/openGL/incomplete/4.5 Doxygen&refactoring/cmake/CMakeFiles/edit_cache.dir
